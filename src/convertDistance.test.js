@@ -1,4 +1,4 @@
-import { kilometersToMeters, metersToKilometers, auToKilometers, kilometersToAU } from './DistanceConvert';
+import { kilometersToMeters, metersToKilometers, auToKilometers, kilometersToAU } from './convertDistance';
 
 test('converts 1 km to 1000 m', () => {
   expect(kilometersToMeters(1)).toBe(1000);
