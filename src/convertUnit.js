@@ -17,129 +17,77 @@ const HOUR_TO_MINUTE = 60;
 const HOUR_TO_DAY = 1 / 24;
 const DAY_TO_HOUR = 24;
 
+const conversionFunctions = {
+  km: {
+    au: kilometersToAU,
+    m: kiloToBase,
+    mi: kilometersToMiles,
+    ft: (distance) => metersToFeet(kiloToBase(distance)),
+  },
+  au: {
+    km: auToKilometers,
+    m: (distance) => kiloToBase(auToKilometers(distance)),
+    mi: (distance) => kilometersToMiles(auToKilometers(distance)),
+    ft: (distance) => metersToFeet(kiloToBase(auToKilometers(distance))),
+  },
+  m: {
+    km: baseToKilo,
+    au: (distance) => kilometersToAU(baseToKilo(distance)),
+    mi: (distance) => kilometersToMiles(baseToKilo(distance)),
+    ft: metersToFeet,
+  },
+  mi: {
+    km: milesToKilometers,
+    au: (distance) => kilometersToAU(milesToKilometers(distance)),
+    m: (distance) => baseToKilo(milesToKilometers(distance)),
+    ft: milesToFeet,
+  },
+  ft: {
+    km: (distance) => baseToKilo(feetToMeters(distance)),
+    au: (distance) => kilometersToAU(baseToKilo(feetToMeters(distance))),
+    m: feetToMeters,
+    mi: feetToMiles,
+    in: feetToInches,
+  },
+  in: {
+    ft: inchesToFeet,
+  },
+  sec: {
+    min: secondsToMinutes,
+    hr: secondsToHours,
+    day: secondsToDays,
+  },
+  min: {
+    sec: minutesToSeconds,
+    hr: minutesToHours,
+    day: minutesToDays,
+  },
+  hr: {
+    sec: hoursToSeconds,
+    min: hoursToMinutes,
+    day: hoursToDays,
+  },
+  day: {
+    sec: daysToSeconds,
+    min: daysToMinutes,
+    hr: daysToHours,
+  },
+};
+
 export default function convertUnit(distance, fromUnit, toUnit) {
-  switch(fromUnit) {
-    case 'km':
-      switch(toUnit) {
-        case 'au':
-          return kilometersToAU(distance);
-        case 'm':
-          return kiloToBase(distance);
-        case 'mi':
-          return kilometersToMiles(distance);
-        case 'ft':
-          return metersToFeet(kiloToBase(distance));
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`);
-      }
-    case 'au':
-      switch(toUnit) {
-        case 'km':
-          return auToKilometers(distance);
-        case 'm':
-          return kiloToBase(auToKilometers(distance));
-        case 'mi':
-          return kilometersToMiles(auToKilometers(distance));
-        case 'ft':
-          return metersToFeet(kiloToBase(auToKilometers(distance)));
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
-      }
-    case 'm':
-      switch(toUnit) {
-        case 'km':
-          return baseToKilo(distance);
-        case 'au':
-          return kilometersToAU(baseToKilo(distance));
-        case 'mi':
-          return kilometersToMiles(baseToKilo(distance));
-        case 'ft':
-          return metersToFeet(distance);
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
-      }
-    case 'mi':
-      switch(toUnit) {
-        case 'km':
-          return milesToKilometers(distance);
-        case 'au':
-          return kilometersToAU(milesToKilometers(distance));
-        case 'm':
-          return kiloToBase(milesToKilometers(distance));
-        case 'ft':
-          return milesToFeet(distance);
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
-      }
-    case 'ft':
-      switch(toUnit) {
-        case 'km':
-          return baseToKilo(feetToMeters(distance));
-        case 'au':
-          return kilometersToAU(baseToKilo(feetToMeters(distance)));
-        case 'm':
-          return feetToMeters(distance);
-        case 'mi':
-          return feetToMiles(distance);
-        case 'in':
-          return feetToInches(distance);
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
-      }
-    case 'in':
-      switch(toUnit) {
-        case 'ft':
-          return inchesToFeet(distance);
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
-      }
-    case 'sec':
-      switch(toUnit) {
-        case 'min':
-          return secondsToMinutes(distance);
-        case 'hr':
-          return secondsToHours(distance);
-        case 'day':
-          return secondsToDays(distance);
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
-      }
-    case 'min':
-      switch(toUnit) {
-        case 'sec':
-          return minutesToSeconds(distance);
-        case 'hr':
-          return minutesToHours(distance);
-        case 'day':
-          return minutesToDays(distance);
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
-      }
-    case 'hr':
-      switch(toUnit) {
-        case 'sec':
-          return hoursToSeconds(distance);
-        case 'min':
-          return hoursToMinutes(distance);
-        case 'day':
-          return hoursToDays(distance);
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
-      }
-    case 'day':
-      switch(toUnit) {
-        case 'sec':
-          return daysToSeconds(distance);
-        case 'min':
-          return daysToMinutes(distance);
-        case 'hr':
-          return daysToHours(distance);
-        default:
-          throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
-      }
-    default:
-      throw new Error(`fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`)
+  const fromUnitFunctions = conversionFunctions[fromUnit];
+  if (!fromUnitFunctions) {
+    throw new Error(`fromUnit ${fromUnit} is not supported`);
   }
+
+  const conversionFunction = fromUnitFunctions[toUnit];
+  if (!conversionFunction) {
+    throw new Error(
+      `fromUnit ${fromUnit} is incompatible with toUnit ${toUnit} or has not been implemented yet`
+    );
+  }
+
+  return conversionFunction(distance);
 }
 
 export function kilometersToAU(kilometers) {
@@ -237,5 +185,3 @@ export function hoursToSeconds(hours) {
 export function secondsToHours(seconds) {
   return minutesToHours(secondsToMinutes(seconds));
 }
-
-
