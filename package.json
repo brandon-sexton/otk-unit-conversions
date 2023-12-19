@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "unit-conversions-js"
+    "url": "https://github.com/brandon-sexton/unit-conversions-js.git"
   },
   "keywords": [
     "math",
