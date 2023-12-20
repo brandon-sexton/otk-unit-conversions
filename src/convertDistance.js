@@ -16,6 +16,8 @@ const MINUTE_TO_HOUR = 1 / 60;
 const HOUR_TO_MINUTE = 60;
 const HOUR_TO_DAY = 1 / 24;
 const DAY_TO_HOUR = 24;
+const MILLI_TO_BASE = 1 / 1000;
+const BASE_TO_MILLI = 1000;
 
 const conversionFunctions = {
   km: {
@@ -23,6 +25,10 @@ const conversionFunctions = {
     m: kiloToBase,
     mi: kilometersToMiles,
     ft: (distance) => metersToFeet(kiloToBase(distance)),
+  },
+  mm: {
+    m: milliToBase,
+    in: (distance) => feetToInches(metersToFeet(milliToBase(distance))),
   },
   au: {
     km: auToKilometers,
@@ -51,6 +57,7 @@ const conversionFunctions = {
   },
   in: {
     ft: inchesToFeet,
+    mm: (distance) => baseToMilli(feetToMeters(inchesToFeet(distance))),
   },
   sec: {
     min: secondsToMinutes,
@@ -74,7 +81,7 @@ const conversionFunctions = {
   },
 };
 
-export default function convertUnit(distance, fromUnit, toUnit) {
+export default function convertDistance(distance, fromUnit, toUnit) {
   const fromUnitFunctions = conversionFunctions[fromUnit];
   if (!fromUnitFunctions) {
     throw new Error(`fromUnit ${fromUnit} is not supported`);
@@ -184,4 +191,12 @@ export function hoursToSeconds(hours) {
 
 export function secondsToHours(seconds) {
   return minutesToHours(secondsToMinutes(seconds));
+}
+
+export function milliToBase(milli) {
+  return milli * MILLI_TO_BASE;
+}
+
+export function baseToMilli(base) {
+  return base * BASE_TO_MILLI;
 }

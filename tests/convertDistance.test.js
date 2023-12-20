@@ -1,4 +1,4 @@
-import convertUnit from '../src/convertUnit';
+import convertUnit from '../src/convertDistance';
 
 test('kilometers to meters', () => {
   expect(convertUnit(1, 'km', 'm')).toBe(1000, '1 km should be 1000 m');
@@ -78,4 +78,32 @@ test('feet to miles', () => {
 
 test('miles to feet', () => {
   expect(convertUnit(1, 'mi', 'ft')).toBe(5280, '1 mile should be 5280 feet');
+});
+
+test('millimeters to inches', () => {
+  expect(convertUnit(5, 'mm', 'in')).toBeCloseTo(0.19685, 5, 'p.19 section 2.5 test #1 - 5 mm should be 0.19685 inches');
+});
+
+test('inches to millimeters', () => {
+  expect(convertUnit(10, 'in', 'mm')).toBeCloseTo(254, 5, 'p.19 section 2.5 test #2 - 10 inches should be 254 mm');
+});
+
+test('meters to feet', () => {
+  expect(convertUnit(30, 'm', 'ft')).toBeCloseTo(98.425197, 6, 'p.19 section 2.5 test #3 - 30 meters should be 98.4252 feet');
+});
+
+test('feet to meters', () => {
+  expect(convertUnit(25, 'ft', 'm')).toBeCloseTo(7.62, 2, 'p.19 section 2.5 test #4 - 25 feet should be 7.62 meters');
+});
+
+test('miles to kilometers', () => {
+  expect(convertUnit(100, 'mi', 'km')).toBeCloseTo(160.934, 3, 'p.19 section 2.5 test #5 - 100 miles should be 160.934 km');
+});
+
+test('kilometers to miles', () => {
+  expect(convertUnit(88, 'km', 'mi')).toBeCloseTo(54.68, 2, 'p.19 section 2.5 test #6 - 88 km should be 54.6807 miles');
+});
+
+test('au to miles', () => {
+  expect(convertUnit(2, 'au', 'mi')).toBeCloseTo(185912076.62768587, 0, 'p.19 section 2.5 test #11 - 2 AU should be 186000000 miles');
 });
