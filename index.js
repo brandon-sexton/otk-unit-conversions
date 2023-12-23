@@ -1,4 +1,4 @@
 export {
   baseToKilo,
   kiloToBase,
-} from './convertDistance.js';
+} from './src/convertDistance.js';
