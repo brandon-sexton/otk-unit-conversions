@@ -1,4 +1,4 @@
-import degreesToDMS from "../src/degreesToDMS";
+import { degreesToDMS, dmsToDegrees } from '../src/convertAngle';
 
 test('p.20 Test #19 reverse', () => {
   let dmsSign = degreesToDMS(13.069444444444444);
@@ -30,4 +30,12 @@ test('p.20 Test #22', () => {
   expect(dmsSign[1]).toEqual(17);
   expect(dmsSign[2]).toBeCloseTo(44.88, 6);
   expect(dmsSign[3]).toEqual(1);
+});
+
+test('p.20 Test #19', () => {
+  expect(dmsToDegrees(13, 4, 10)).toBeCloseTo(13.069444, 6);
+});
+
+test('p.20 Test #21', () => {
+  expect(dmsToDegrees(300, 20, 0)).toBeCloseTo(300.333333, 6);
 });
