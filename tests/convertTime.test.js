@@ -1,4 +1,20 @@
-import { daysToHours, daysToMinutes, daysToSeconds, hoursToDays, hoursToMinutes, hoursToSeconds, minutesToDays, minutesToHours, minutesToSeconds, secondsToDays, secondsToHours, secondsToMinutes } from "../src/convertTime";
+import {
+  calendarToJulian,
+  daysToHours,
+  daysToMinutes,
+  daysToSeconds,
+  hmsToDays,
+  hoursToDays,
+  hoursToMinutes,
+  hoursToSeconds,
+  julianToCalendar,
+  minutesToDays,
+  minutesToHours,
+  minutesToSeconds,
+  secondsToDays,
+  secondsToHours,
+  secondsToMinutes,
+} from '../src/convertTime';
 
 test('minutes to seconds', () => {
   expect(minutesToSeconds(1)).toBe(60, '1 minute should be 60 seconds');
@@ -46,4 +62,41 @@ test('seconds to hours', () => {
 
 test('hours to seconds', () => {
   expect(hoursToSeconds(1)).toBe(3600, '1 hour should be 3600 seconds');
+});
+
+test('hours, minutes, and seconds to days', () => {
+  expect(
+      hmsToDays(14, 33, 36)).toBe(
+      0.6066666666666666, '14:33:36 should be 0.606666666667 days');
+});
+
+test('p.41 section 3.6 example', () => {
+  expect(
+      calendarToJulian(2010, 1, 1, 0, 0, 0)).toBe(
+      2455197.5, '2010-01-01 00:00:00 should be 2455197.5');
+});
+
+test('p.51 section 3.15 test #5', () => {
+  expect(
+      calendarToJulian(2010, 11, 1, 0, 0, 0)).toBe(
+      2455501.5, '2010-11-01 00:00:00 should be 2455501.5');
+});
+
+test('p.51 section 3.15 test #6', () => {
+  expect(
+      calendarToJulian(2015, 5, 10, 6, 0, 0)).toBe(
+      2457152.75, '2015-05-10 06:00:00 should be 2457152.75');
+});
+
+test('p.51 section 3.15 test #7', () => {
+  expect(
+      calendarToJulian(2015, 5, 10, 18, 0, 0)).toBe(
+      2457153.25, '2015-05-10 18:00:00 should be 2457153.25');
+});
+
+test('p.51 section 3.15 test #9', () => {
+  expect(
+      julianToCalendar(2455323.0)).toEqual(
+      {year: 2010, month: 5, day: 6, hour: 12, minute: 0, second: 0},
+      '2455323.0 should be 2010-05-06 12:00:00');
 });
