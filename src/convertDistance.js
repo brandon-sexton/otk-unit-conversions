@@ -16,7 +16,7 @@ const AU_TO_KM = 149597870.7;
 /**
  * Converts kilometers to astronomical units (AU).
  * @param {number} kilometers - The distance in kilometers.
- * @returns {number} The distance in astronomical units (AU).
+ * @return {number} The distance in astronomical units (AU).
  */
 export function kilometersToAU(kilometers) {
   return kilometers * KM_TO_AU;
@@ -25,7 +25,7 @@ export function kilometersToAU(kilometers) {
 /**
  * Converts astronomical units (AU) to kilometers.
  * @param {number} au - The distance in astronomical units (AU).
- * @returns {number} The distance in kilometers.
+ * @return {number} The distance in kilometers.
  */
 export function auToKilometers(au) {
   return au * AU_TO_KM;
@@ -34,7 +34,7 @@ export function auToKilometers(au) {
 /**
  * Converts kilometers to base units.
  * @param {number} kilometers - The distance in kilometers.
- * @returns {number} The distance in base units.
+ * @return {number} The distance in base units.
  */
 export function kiloToBase(kilometers) {
   return kilometers * KILO_TO_BASE;
@@ -43,7 +43,7 @@ export function kiloToBase(kilometers) {
 /**
  * Converts base units to kilometers.
  * @param {number} meters - The distance in base units.
- * @returns {number} The distance in kilometers.
+ * @return {number} The distance in kilometers.
  */
 export function baseToKilo(meters) {
   return meters * BASE_TO_KILO;
@@ -52,7 +52,7 @@ export function baseToKilo(meters) {
 /**
  * Converts feet to meters.
  * @param {number} feet - The distance in feet.
- * @returns {number} The distance in meters.
+ * @return {number} The distance in meters.
  */
 export function feetToMeters(feet) {
   return feet * FEET_TO_METERS;
@@ -61,7 +61,7 @@ export function feetToMeters(feet) {
 /**
  * Converts meters to feet.
  * @param {number} meters - The distance in meters.
- * @returns {number} The distance in feet.
+ * @return {number} The distance in feet.
  */
 export function metersToFeet(meters) {
   return meters * METERS_TO_FEET;
@@ -70,7 +70,7 @@ export function metersToFeet(meters) {
 /**
  * Converts miles to kilometers.
  * @param {number} miles - The distance in miles.
- * @returns {number} The distance in kilometers.
+ * @return {number} The distance in kilometers.
  */
 export function milesToKilometers(miles) {
   return miles * MILES_TO_KM;
@@ -79,7 +79,7 @@ export function milesToKilometers(miles) {
 /**
  * Converts kilometers to miles.
  * @param {number} kilometers - The distance in kilometers.
- * @returns {number} The distance in miles.
+ * @return {number} The distance in miles.
  */
 export function kilometersToMiles(kilometers) {
   return kilometers * KM_TO_MILES;
@@ -88,7 +88,7 @@ export function kilometersToMiles(kilometers) {
 /**
  * Converts miles to feet.
  * @param {number} miles - The distance in miles.
- * @returns {number} The distance in feet.
+ * @return {number} The distance in feet.
  */
 export function milesToFeet(miles) {
   return miles * MILES_TO_FEET;
@@ -97,7 +97,7 @@ export function milesToFeet(miles) {
 /**
  * Converts feet to miles.
  * @param {number} feet - The distance in feet.
- * @returns {number} The distance in miles.
+ * @return {number} The distance in miles.
  */
 export function feetToMiles(feet) {
   return feet * FEET_TO_MILES;
@@ -106,7 +106,7 @@ export function feetToMiles(feet) {
 /**
  * Converts feet to inches.
  * @param {number} feet - The distance in feet.
- * @returns {number} The distance in inches.
+ * @return {number} The distance in inches.
  */
 export function feetToInches(feet) {
   return feet * FEET_TO_INCHES;
@@ -115,7 +115,7 @@ export function feetToInches(feet) {
 /**
  * Converts inches to feet.
  * @param {number} inches - The distance in inches.
- * @returns {number} The distance in feet.
+ * @return {number} The distance in feet.
  */
 export function inchesToFeet(inches) {
   return inches * INCHES_TO_FEET;
@@ -124,7 +124,7 @@ export function inchesToFeet(inches) {
 /**
  * Converts milli to base units.
  * @param {number} milli - The distance in milli units.
- * @returns {number} The distance in base units.
+ * @return {number} The distance in base units.
  */
 export function milliToBase(milli) {
   return milli * MILLI_TO_BASE;
@@ -133,7 +133,7 @@ export function milliToBase(milli) {
 /**
  * Converts base units to milli.
  * @param {number} base - The distance in base units.
- * @returns {number} The distance in milli units.
+ * @return {number} The distance in milli units.
  */
 export function baseToMilli(base) {
   return base * BASE_TO_MILLI;
