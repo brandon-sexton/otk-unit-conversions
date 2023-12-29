@@ -70,3 +70,8 @@ export function dmsToDegrees(degrees, minutes, seconds) {
   // 7. Multiply the result by the sign to determine the final result.
   return degs * sign;
 }
+
+export default {
+  degreesToDMS,
+  dmsToDegrees,
+};
