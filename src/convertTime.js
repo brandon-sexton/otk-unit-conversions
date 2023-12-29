@@ -7,6 +7,9 @@ const DAY_TO_HOUR = 24;
 const JD_RECIPPROCAL_1 = 1 / 36524.25;
 const JD_RECIPPROCAL_2 = 1 / 365.25;
 const JD_RECIPPROCAL_3 = 1 / 30.6001;
+// const MJD_ZERO = 2400000.5;
+// const J2000_DATE = 2451545.0;
+// const JULIAN_CENTURY = 36525;
 
 /**
  * Converts seconds to minutes.
