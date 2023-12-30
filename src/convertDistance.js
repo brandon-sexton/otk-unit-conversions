@@ -6,10 +6,6 @@ const MILES_TO_FEET = 5280;
 const FEET_TO_MILES = 1 / MILES_TO_FEET;
 const FEET_TO_INCHES = 12;
 const INCHES_TO_FEET = 1 / FEET_TO_INCHES;
-const MILLI_TO_BASE = 1000;
-const BASE_TO_MILLI = 1 / MILLI_TO_BASE;
-const KILO_TO_BASE = 1000;
-const BASE_TO_KILO = 1 / KILO_TO_BASE;
 const KM_TO_AU = 1 / 149597870.7;
 const AU_TO_KM = 149597870.7;
 
@@ -29,24 +25,6 @@ export function kilometersToAU(kilometers) {
  */
 export function auToKilometers(au) {
   return au * AU_TO_KM;
-}
-
-/**
- * Converts kilometers to base units.
- * @param {number} kilometers - The distance in kilometers.
- * @return {number} The distance in base units.
- */
-export function kiloToBase(kilometers) {
-  return kilometers * KILO_TO_BASE;
-}
-
-/**
- * Converts base units to kilometers.
- * @param {number} meters - The distance in base units.
- * @return {number} The distance in kilometers.
- */
-export function baseToKilo(meters) {
-  return meters * BASE_TO_KILO;
 }
 
 /**
@@ -119,22 +97,4 @@ export function feetToInches(feet) {
  */
 export function inchesToFeet(inches) {
   return inches * INCHES_TO_FEET;
-}
-
-/**
- * Converts milli to base units.
- * @param {number} milli - The distance in milli units.
- * @return {number} The distance in base units.
- */
-export function milliToBase(milli) {
-  return milli * MILLI_TO_BASE;
-}
-
-/**
- * Converts base units to milli.
- * @param {number} base - The distance in base units.
- * @return {number} The distance in milli units.
- */
-export function baseToMilli(base) {
-  return base * BASE_TO_MILLI;
 }

@@ -1,11 +1,9 @@
 import {
   auToKilometers,
-  baseToKilo,
   feetToInches,
   feetToMeters,
   feetToMiles,
   inchesToFeet,
-  kiloToBase,
   kilometersToAU,
   kilometersToMiles,
   metersToFeet,
@@ -13,14 +11,6 @@ import {
   milesToKilometers,
 } from '../src/convertDistance';
 
-
-test('kilometers to meters', () => {
-  expect(kiloToBase(1)).toBe(1000, '1 km should be 1000 m');
-});
-
-test('meters to kilometers', () => {
-  expect(baseToKilo(1000)).toBe(1, '1000 m should be 1 km');
-});
 
 test('astronomical unit to kilometers', () => {
   expect(auToKilometers(1)).toBe(149597870.7, '1 AU should be 149597870.7 km');
