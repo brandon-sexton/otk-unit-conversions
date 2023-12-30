@@ -214,22 +214,3 @@ export function julianToCalendar(jd) {
     second,
   };
 }
-
-export default {
-  secondsToMinutes,
-  minutesToSeconds,
-  minutesToHours,
-  hoursToMinutes,
-  hoursToDays,
-  daysToHours,
-  daysToMinutes,
-  minutesToDays,
-  daysToSeconds,
-  secondsToDays,
-  hoursToSeconds,
-  secondsToHours,
-  hmsToDays,
-  daysToHMS,
-  calendarToJulian,
-  julianToCalendar,
-};

@@ -138,20 +138,3 @@ export function milliToBase(milli) {
 export function baseToMilli(base) {
   return base * BASE_TO_MILLI;
 }
-
-export default {
-  kilometersToAU,
-  auToKilometers,
-  kiloToBase,
-  baseToKilo,
-  feetToMeters,
-  metersToFeet,
-  milesToKilometers,
-  kilometersToMiles,
-  milesToFeet,
-  feetToMiles,
-  feetToInches,
-  inchesToFeet,
-  milliToBase,
-  baseToMilli,
-};
