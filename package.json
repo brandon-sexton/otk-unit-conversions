@@ -1,6 +1,6 @@
 {
-  "name": "unit-conversions",
-  "version": "0.1.0",
+  "name": "unit-conversions-js",
+  "version": "0.3.1",
   "description": "Basic unit conversions",
   "main": "index.js",
   "scripts": {
