@@ -1,4 +1,3 @@
-export * from './src/convertAngle.js';
-export * from './src/convertDistance.js';
-export * from './src/convertTime.js';
-export * from './src/convertMetric.js';
+export * from './src/convert-angle.js';
+export * from './src/convert-distance.js';
+export * from './src/convert-metric.js';

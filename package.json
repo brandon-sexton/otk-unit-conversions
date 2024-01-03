@@ -1,5 +1,5 @@
 {
-  "name": "unit-conversions-js",
+  "name": "unit-conversions",
   "version": "0.3.0",
   "description": "Basic unit conversions",
   "main": "index.js",

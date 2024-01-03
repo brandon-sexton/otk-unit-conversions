@@ -9,7 +9,7 @@ import {
   metersToFeet,
   milesToFeet,
   milesToKilometers,
-} from '../src/convertDistance';
+} from '../src/convert-distance';
 
 
 test('astronomical unit to kilometers', () => {

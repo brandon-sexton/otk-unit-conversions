@@ -1,3 +1,4 @@
+import {DEGREES_TO_RADIANS, RADIANS_TO_DEGREES} from './constants';
 /**
  * Converts degrees to degrees, minutes, and seconds (DMS) format.
  * @param {number} degrees - The degrees value to convert.
@@ -69,4 +70,22 @@ export function dmsToDegrees(degrees, minutes, seconds) {
 
   // 7. Multiply the result by the sign to determine the final result.
   return degs * sign;
+}
+
+/**
+ * Converts degrees to radians.
+ * @param {number} degrees - The degrees value.
+ * @return {number} - The radians value.
+ */
+export function degreesToRadians(degrees) {
+  return degrees * DEGREES_TO_RADIANS;
+}
+
+/**
+ * Converts radians to degrees.
+ * @param {number} radians - The radians value.
+ * @return {number} - The degrees value.
+ */
+export function radiansToDegrees(radians) {
+  return radians * RADIANS_TO_DEGREES;
 }

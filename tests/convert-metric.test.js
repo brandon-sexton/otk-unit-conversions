@@ -1,4 +1,4 @@
-import {kiloToBase, baseToKilo} from '../src/convertMetric';
+import {kiloToBase, baseToKilo} from '../src/convert-metric';
 
 test('kilometers to meters', () => {
   expect(kiloToBase(1)).toBe(1000, '1 km should be 1000 m');
